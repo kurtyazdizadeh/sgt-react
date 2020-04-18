@@ -1,4 +1,5 @@
 import React from 'react';
+import Grade from './grade';
 
 class GradeTable extends React.Component {
   constructor(props) {
@@ -6,7 +7,13 @@ class GradeTable extends React.Component {
   }
 
   renderGrades() {
-    console.log(this.props.grades);
+    const grades = this.props.grades;
+
+    const gradeElements = grades.map(grade => {
+      return <Grade key={grade.id} grade={grade} />;
+    });
+
+    return gradeElements;
   }
 
   render() {
