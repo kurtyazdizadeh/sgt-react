@@ -6,13 +6,14 @@ class GradeForm extends React.Component {
     this.state = {
       name: '',
       course: '',
-      grade: 0
+      grade: ''
     };
 
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleCourseChange = this.handleCourseChange.bind(this);
     this.handleGradeChange = this.handleGradeChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.resetForm = this.resetForm.bind(this);
   }
 
   handleNameChange(event) {
@@ -38,10 +39,14 @@ class GradeForm extends React.Component {
     };
 
     this.props.onSubmit(newGrade);
+    this.resetForm();
+  }
+
+  resetForm() {
     this.setState({
       name: '',
       course: '',
-      grade: 0
+      grade: ''
     });
   }
 
@@ -54,7 +59,7 @@ class GradeForm extends React.Component {
         className="col-12 col-lg-3 px-0"
         onSubmit={this.handleSubmit}
       >
-        <h4 className="form-title" id="formTitle">Add Grade</h4>
+        <h4 className="form-title">Add Grade</h4>
         <div className={formRowClasses}>
           <label htmlFor="name" className={labelClasses}>
             <i className="fas fa-user"></i>
@@ -65,6 +70,7 @@ class GradeForm extends React.Component {
             id="name"
             name="name"
             placeholder="Name"
+            value={this.state.name}
             onChange={this.handleNameChange}
           />
         </div>
@@ -78,6 +84,7 @@ class GradeForm extends React.Component {
             id="course"
             name="course"
             placeholder="Course"
+            value={this.state.course}
             onChange={this.handleCourseChange}
           />
         </div>
@@ -91,6 +98,7 @@ class GradeForm extends React.Component {
             id="grade"
             name="grade"
             placeholder="Grade"
+            value={this.state.grade}
             onChange={this.handleGradeChange}
           />
         </div>
@@ -98,12 +106,14 @@ class GradeForm extends React.Component {
           <button
             className="btn btn-success mx-2"
             type="submit"
-            id="formSubmit">
+          >
               Add
           </button>
           <button
             className="btn btn-secondary"
-            type="reset">
+            type="reset"
+            onClick={this.resetForm}
+          >
               Cancel
           </button>
         </div>
