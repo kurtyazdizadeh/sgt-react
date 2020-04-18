@@ -6,7 +6,7 @@ class GradeForm extends React.Component {
     const inputClasses = 'form-control col-10';
     const formRowClasses = 'form-group row';
     return (
-      <form className="col-12 col-lg-3">
+      <form className="col-12 col-lg-3 px-0">
         <h4 className="form-title" id="formTitle">Add Grade</h4>
         <div className={formRowClasses}>
           <label htmlFor="name" className={labelClasses}>
@@ -44,7 +44,7 @@ class GradeForm extends React.Component {
             placeholder="Grade"
           />
         </div>
-        <div className="form-group row">
+        <div className={formRowClasses}>
           <button className="btn btn-success mx-2" type="submit" id="formSubmit">Add</button>
           <button className="btn btn-secondary" type="reset">Cancel</button>
         </div>
