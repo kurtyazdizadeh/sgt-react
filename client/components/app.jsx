@@ -39,8 +39,10 @@ class App extends React.Component {
           averageGrade={this.getAverageGrade()}
           text="Student Grade Table"
         />
-        <GradeTable grades={this.state.grades}/>
-        <GradeForm />
+        <div className="row">
+          <GradeTable grades={this.state.grades}/>
+          <GradeForm />
+        </div>
       </div>
     );
   }

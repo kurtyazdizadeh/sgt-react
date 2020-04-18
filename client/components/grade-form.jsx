@@ -6,7 +6,7 @@ class GradeForm extends React.Component {
     const inputClasses = 'form-control col-10';
     const formRowClasses = 'form-group row';
     return (
-      <form action="" method="POST">
+      <form className="col-12 col-lg-3">
         <h4 className="form-title" id="formTitle">Add Grade</h4>
         <div className={formRowClasses}>
           <label htmlFor="name" className={labelClasses}>
