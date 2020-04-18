@@ -6,8 +6,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      grades: [],
-      averageGrade: 0
+      grades: []
     };
   }
 
