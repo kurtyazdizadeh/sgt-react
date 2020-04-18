@@ -6,7 +6,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      grades: []
+      grades: [],
+      averageGrade: 0
     };
   }
 
@@ -19,10 +20,25 @@ class App extends React.Component {
       .catch(err => console.error(err));
   }
 
+  getAverageGrade() {
+    const { grades } = this.state;
+    let average = 0;
+
+    for (let i = 0; i < grades.length; i++) {
+      average += grades[i].grade;
+    }
+    average /= grades.length;
+
+    return Math.ceil(average).toString();
+  }
+
   render() {
     return (
-      <div>
-        <Header text="Student Grade Table"/>
+      <div className="container">
+        <Header
+          averageGrade={this.getAverageGrade()}
+          text="Student Grade Table"
+        />
         <GradeTable grades={this.state.grades}/>
       </div>
     );
