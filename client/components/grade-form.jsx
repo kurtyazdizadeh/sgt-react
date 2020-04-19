@@ -54,8 +54,8 @@ class GradeForm extends React.Component {
   }
 
   render() {
-    const labelClasses = 'col-form-label col-2 card align-items-center bg-light';
-    const inputClasses = 'form-control col-10';
+    const labelClasses = 'col-form-label col-2 card top-left-edge align-items-center bg-light';
+    const inputClasses = 'form-control right-bottom-edge col-10';
     const formRowClasses = 'form-group row';
     return (
       <form
