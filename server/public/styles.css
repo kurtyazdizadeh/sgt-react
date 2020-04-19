@@ -1,0 +1,28 @@
+.cursor-pointer {
+  cursor: pointer;
+}
+.top-left-edge {
+  border-radius: 5px 0 0 5px;
+  border-right: none;
+}
+.right-bottom-edge {
+  border-radius: 0 5px 5px 0;
+}
+.average-grade {
+  text-align: right;
+}
+
+@media (max-width: 991.98px) {
+  .average-grade {
+    text-align: center;
+  }
+  .title {
+    text-align: center;
+  }
+  .form-title {
+    text-align: center;
+  }
+  form {
+    padding-left: 0;
+  }
+}
