@@ -8,24 +8,27 @@ class GradeForm extends React.Component {
       course: '',
       grade: ''
     };
-
-    this.handleNameChange = this.handleNameChange.bind(this);
-    this.handleCourseChange = this.handleCourseChange.bind(this);
-    this.handleGradeChange = this.handleGradeChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.resetForm = this.resetForm.bind(this);
   }
 
-  handleNameChange(event) {
-    this.setState({ name: event.target.value });
-  }
-
-  handleCourseChange(event) {
-    this.setState({ course: event.target.value });
-  }
-
-  handleGradeChange(event) {
-    this.setState({ grade: event.target.value });
+  handleChange(event) {
+    const change = {};
+    switch (event.target.id) {
+      case 'name':
+        change.name = event.target.value;
+        break;
+      case 'course':
+        change.course = event.target.value;
+        break;
+      case 'grade':
+        change.grade = event.target.value;
+        break;
+      default:
+        break;
+    }
+    this.setState(change);
   }
 
   handleSubmit(event) {
@@ -71,7 +74,7 @@ class GradeForm extends React.Component {
             name="name"
             placeholder="Name"
             value={this.state.name}
-            onChange={this.handleNameChange}
+            onChange={this.handleChange}
           />
         </div>
         <div className={formRowClasses}>
@@ -85,7 +88,7 @@ class GradeForm extends React.Component {
             name="course"
             placeholder="Course"
             value={this.state.course}
-            onChange={this.handleCourseChange}
+            onChange={this.handleChange}
           />
         </div>
         <div className={formRowClasses}>
@@ -99,7 +102,7 @@ class GradeForm extends React.Component {
             name="grade"
             placeholder="Grade"
             value={this.state.grade}
-            onChange={this.handleGradeChange}
+            onChange={this.handleChange}
           />
         </div>
         <div className={formRowClasses}>
