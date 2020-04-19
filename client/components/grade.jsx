@@ -8,6 +8,14 @@ function Grade(props) {
       <td>{name}</td>
       <td>{course}</td>
       <td>{grade}</td>
+      <td>
+        <button
+          onClick={props.onDelete}
+          className="btn btn-danger"
+        >
+          Delete
+        </button>
+      </td>
     </tr>
   );
 }
