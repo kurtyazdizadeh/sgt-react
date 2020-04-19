@@ -45,8 +45,6 @@ class App extends React.Component {
     const { grades } = this.state;
 
     const gradeIndex = grades.findIndex(grade => grade.id === gradeId);
-    console.log(gradeIndex);
-    const gradeToDelete = grades[gradeIndex];
 
     const fetchConfig = {
       method: 'DELETE',
@@ -54,10 +52,11 @@ class App extends React.Component {
     };
 
     fetch(`/api/grades/${gradeId}`, fetchConfig)
-      .then(res => console.log(res))
-      // .then(data => {
-      //   console.log(data);
-      // })
+      .then(res => res.json())
+      .then(data => {
+        const updatedGrades = grades.filter((grade, index) => index !== gradeIndex);
+        this.setState({ grades: updatedGrades });
+      })
       .catch(err => console.error(err));
 
   }
@@ -67,11 +66,13 @@ class App extends React.Component {
     let average = 0;
 
     for (let i = 0; i < grades.length; i++) {
-      average += parseFloat(grades[i].grade);
+      average += grades[i].grade;
     }
     average /= grades.length;
 
-    return Math.ceil(average).toString();
+    const result = Math.ceil(average);
+
+    return result || 'N/A';
   }
 
   render() {

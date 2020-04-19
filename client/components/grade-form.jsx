@@ -23,7 +23,7 @@ class GradeForm extends React.Component {
         change.course = event.target.value;
         break;
       case 'grade':
-        change.grade = event.target.value;
+        change.grade = parseFloat(event.target.value);
         break;
       default:
         break;
