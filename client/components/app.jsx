@@ -43,9 +43,7 @@ class App extends React.Component {
 
   deleteGrade(gradeId) {
     const { grades } = this.state;
-
     const gradeIndex = grades.findIndex(grade => grade.id === gradeId);
-
     const fetchConfig = {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' }
@@ -58,7 +56,6 @@ class App extends React.Component {
         this.setState({ grades: updatedGrades });
       })
       .catch(err => console.error(err));
-
   }
 
   getAverageGrade() {
@@ -69,10 +66,7 @@ class App extends React.Component {
       average += grades[i].grade;
     }
     average /= grades.length;
-
-    const result = Math.ceil(average);
-
-    return result || 'N/A';
+    return Math.ceil(average) || 'N/A';
   }
 
   render() {
