@@ -50,7 +50,6 @@ class App extends React.Component {
     };
 
     fetch(`/api/grades/${gradeId}`, fetchConfig)
-      .then(res => res.json())
       .then(data => {
         const updatedGrades = grades.filter((grade, index) => index !== gradeIndex);
         this.setState({ grades: updatedGrades });
